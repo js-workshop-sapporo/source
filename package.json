@@ -1,0 +1,24 @@
+{
+  "name": "source",
+  "version": "1.0.0",
+  "description": "課題のソースコード",
+  "main": "index.js",
+  "scripts": {
+    "lint:fix": "eslint ./src --fix",
+    "lint": "eslint ./src"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-workshop-sapporo/source.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js-workshop-sapporo/source/issues"
+  },
+  "homepage": "https://github.com/js-workshop-sapporo/source#readme",
+  "devDependencies": {
+    "eslint": "^7.12.1"
+  }
+}
