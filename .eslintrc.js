@@ -1,25 +1,16 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
+  'env': {
+    'es6': true
   },
-  extends: standard,
-  globals: {
-    Atomics: readonly,
-    : readonly,
-    SharedArrayBuffer: readonly,
-  },
-  parserOptions: {
-    ecmaVersion: 2015,
-    sourceType: module,
-  },
-  plugins: [
-    vue,
-  ],
-  rules: {
-    semi: [error, always],
-    comma-dangle: [2, always-multiline],
-    no-var: error,
-  },
+  'rules': {
+    // ==を使おうが===を使おうが気にしない。
+    'eqeqeq': 'off',
+    // if文などで{}を略したらwarning。
+    'curly': 'warn',
+    // ダブルクォートを使う。シングルクォートを使ってたらLinterエラー。
+    'quotes': ['error', 'single'],
+    // セミコロンは必須。無かったらLinterエラー。
+    'semi': ['error', 'always'],
+    'indent': ['error', 2],
+  }
 };
-
