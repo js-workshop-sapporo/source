@@ -17,6 +17,7 @@
       const currentElement = e.currentTarget;
       const accordionTarget = currentElement.nextElementSibling;
       const currentClass = accordionTarget.classList.contains('show');
+      // ターゲット要素のクラス有無
       if (!currentClass) {
         accordionTarget.style.height = accordionTarget.scrollHeight + 'px';
         accordionTarget.classList.add('show');
