@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            js workshop sapporoについて
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapsing" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          JavaScriptの基礎的な部分にフォーカスした勉強会です。 昨今JSのフレームワークを使用する機会が増え、よりJavaScriptの基本的な機能を使うことが多くなりました。 フレームワークを使用する前に一度JavaScriptの基本的な機能やルールを見直す勉強会です。<br>
+          基本的なJavaScriptの書き方（変数・配列・オブジェクトなど）から昨今のES2015の記述などをハンズオン形式で書きながら学んでいきます。
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            主催について
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapsing" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          @redamoon<br>
+          @nagasawaaaa
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            今回の勉強について
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapsing" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          今回はDOMの回になります。<br>
+          普段jQueryで実装している部分をJavaScriptのみで実装していく課題を用意しました。
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
