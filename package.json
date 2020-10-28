@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/js-workshop-sapporo/source#readme",
   "devDependencies": {
+    "@js-primer/local-server": "^0.1.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.14.0",
     "eslint-plugin-prettier": "^3.1.4",
