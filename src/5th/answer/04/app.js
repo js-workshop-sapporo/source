@@ -10,7 +10,11 @@
     this.nextBtn = '';
     this.initialize();
   }
+
   SlideShow.prototype = {
+    /**
+     * 初期化処理
+     */
     initialize: function() {
       if (!this.item) {
         this.item = `${this.wrapper}-item`;
@@ -41,11 +45,19 @@
         }
       });
     },
+    /**
+     * 前へ戻るボタンクリック
+     * @param {Event} event
+     */
     onClikcPrevBtn: function(event) {
       event.preventDefault();
       this.items.decrement();
       this.items.showItem();
     },
+    /**
+     * 次へ戻るボタンクリック
+     * @param {Event} event
+     */
     onClikcNextBtn: function(event) {
       event.preventDefault();
       this.items.increment();
@@ -55,15 +67,34 @@
 
   /**
    * スライドショーアイテムclass
+   * @param {NodeList} nodelist
    */
   function SlideShowItem(nodeList) {
     this.list = nodeList ? nodeList : [];
     this.currentIndex = 0;
+    this.initialize();
   }
   SlideShowItem.prototype = {
+    /**
+     * 初期化処理
+     */
+    initialize: function() {
+      this.list.forEach((element, index) => {
+        if (index === 0) {
+          // 一番最初のスライドをアクティブにする
+          element.classList.add('active');
+        }
+      });
+    },
+    /**
+     * スライドアイテムの最大indexを返す
+     */
     getMaxIndex: function() {
       return this.list.length - 1;
     },
+    /**
+     * 次のスライドへ進む
+     */
     increment: function() {
       if (this.currentIndex < this.getMaxIndex()) {
         this.currentIndex++;
@@ -71,6 +102,9 @@
         this.currentIndex = 0;
       }
     },
+    /**
+     * 前のスライドへ戻る
+     */
     decrement: function() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
@@ -78,6 +112,9 @@
         this.currentIndex = this.getMaxIndex();
       }
     },
+    /**
+     * 現在のindexにマッチしたスライドを表示する
+     */
     showItem: function() {
       this.list.forEach((element, index) => {
         if (this.currentIndex === index) {
@@ -89,6 +126,5 @@
     }
   };
 
-  // TODO: 各メソッドにJSDoc書く
   const slideShow = new SlideShow('.js-carousel');
 })();
