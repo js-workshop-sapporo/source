@@ -4,43 +4,38 @@
   const tabBtnClassName = '.js-tab-btn';
   const tabBodyClassName = '.js-tab-body';
   const activeClassName = 'active';
-  const hiddenClassName = 'd-none';
 
   /**
    * タブclass
-   * @param {Element} tab 
+   * @param {Element} tab
    */
   function Tab(tab) {
     this.tabBtnGroup = tab.querySelectorAll(tabBtnClassName);
     this.tabBodyGroup = tab.querySelectorAll(tabBodyClassName);
-    this.addClickEvent();
+    this.initialize();
   }
 
   Tab.prototype = {
     /**
+     * 初期化処理
+     */
+    initialize: function () {
+      this.tabBtnGroup.item(0).classList.add(activeClassName);
+      this.tabBodyGroup.item(0).classList.add(activeClassName);
+      this.addClickEvent();
+    },
+    /**
      * タブ本文を表示する
      * @param {string} tabId
      */
-    showBody: function (tabId) {
-      const target = document.querySelector(tabId);
-      if (!target) {return;}
-      this.removeHideenClass(target);
-    },
-    /**
-     * 非表示クラスを取り除く
-     * @param {string}} target 
-     */
-    removeHideenClass: function(target) {
-      if (this.isHidden(target)) {
-        target.classList.remove(hiddenClassName);
-      }
-    },
-    /**
-     * 対象が非表示かを調べる
-     * @param {HTMLElement} target
-     */
-    isHidden: function(target) {
-      return target.classList.contains(hiddenClassName);
+    toggleActiveBody: function (tabId) {
+      this.tabBodyGroup.forEach(tabBody => {
+        if (tabBody.id === this.replaceHeadHash(tabId)) {
+          tabBody.classList.add(activeClassName);
+        } else {
+          tabBody.classList.remove(activeClassName);
+        }
+      });
     },
     /**
      * 対象がアクティブ状態かを調べる
@@ -51,7 +46,7 @@
     },
     /**
      * 対象をアクテイブ状態にする
-     * @param {HTMLElement}} target 
+     * @param {HTMLElement}} target
      */
     toggleActiveButton: function(target) {
       this.tabBtnGroup.forEach(tabBtn => {
@@ -62,39 +57,29 @@
       }
     },
     /**
-     * 対象を非表示にする
-     * @param {HTMLElement} target 
+     * 文字列から戦闘のハッシュ（#）を削除した文字列を返す
+     * @param {string} hash
      */
-    hideTarget: function(target) {
-      if (!this.isHidden(target)) {
-        target.classList.add(hiddenClassName);
-      }
-    },
-    /**
-     * 全てのタブ本文を非表示にする
-     */
-    hideAllTabBody: function() {
-      this.tabBodyGroup.forEach(tabBody => {
-        this.hideTarget(tabBody);
-      });
+    replaceHeadHash: function(string) {
+      return string.replace('#', '');
     },
     /**
      * 全てのボタン要素にクリックイベントを追加する
      */
     addClickEvent: function() {
       this.tabBtnGroup.forEach(tabBtn => {
+        // イベントリスナー内でthisをインスタンスに向けたいので this を bind する
         tabBtn.addEventListener('click', this.onClickTabBtn.bind(this), false);
       });
     },
     /**
      * クリックイベントリスナー
-     * @param {Event} event 
+     * @param {Event} event
      */
     onClickTabBtn: function(event) {
       event.preventDefault();
       const tabId = event.target.hash;
-      this.hideAllTabBody(this.tabBodyGroup);
-      this.showBody(tabId);
+      this.toggleActiveBody(tabId);
       this.toggleActiveButton(event.target);
     }
   };
