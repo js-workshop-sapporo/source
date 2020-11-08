@@ -1,0 +1,6 @@
+.js-tab-body {
+  display: none;
+}
+.js-tab-body.active {
+  display: block;
+}
