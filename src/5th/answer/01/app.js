@@ -57,11 +57,11 @@
       }
     },
     /**
-     * 文字列から戦闘のハッシュ（#）を削除した文字列を返す
+     * 文字列から先頭のハッシュ（#）を削除した文字列を返す
      * @param {string} hash
      */
     replaceHeadHash: function(string) {
-      return string.replace('#', '');
+      return string.replace(/^#/, '');
     },
     /**
      * 全てのボタン要素にクリックイベントを追加する
