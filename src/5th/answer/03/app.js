@@ -1,38 +1,29 @@
-(function(window, document){
-  const div = document.createElement('div');
-  div.setAttribute('class', 'modal-backdrop fade show');
-  const buttons = document.querySelectorAll('.btn');
-  const closeButton = document.querySelector('.close');
-  // const overlay = document.querySelector('.modal-backdrop');
-  const modal = document.querySelector('.modal');
-  const closeOverlay = ()=> {
-    console.dir('a');
-  };
-  const event = ()=> {
-    const button = document.querySelector('.btn');
-    const toggle = button.getAttribute('data-toggle');
-    const objBody = document.getElementsByTagName('body').item(0);
-    if (toggle === 'modal') {
-      modal.setAttribute('style', 'display: block; padding-right: 15px;');
-      objBody.appendChild(div);
-    } else {
-      modal.removeAttribute('style');
-    }
-  };
-  buttons.forEach((element, index) => {
-    element.addEventListener('click', event, false);
-  });
-  div.addEventListener('click', closeOverlay, false);
+'use strict';
 
-  // const backdrop = document.querySelector('.modal-backdrop');
-  // backdrop.addEventListener('click', (e) => {
-  //   modal.removeAttribute('style');
-  // });
-  // if (isOverlay) {
-  //   overlayButton.addEventListener('click', (e) => {
-  //     const backdrop = document.querySelector('.modal-backdrop');
-  //     modal.removeAttribute('style');
-  //     backdrop.remove();
-  //   });
-  // }
+(function(window, document){
+  const buttons = document.querySelectorAll('.btn');
+  const modal = document.querySelector('.modal');
+  const overlay = document.querySelector('.modal-backdrop');
+  const SHOW = 'show';
+
+  /**
+   * @param isOpen Boolean
+   */
+  const show = (isOpen)=> {
+    isOpen ? modal.classList.add(SHOW) : modal.classList.remove(SHOW)
+    isOpen ? overlay.classList.add(SHOW) : overlay.classList.remove(SHOW)
+  }
+
+  buttons.forEach((element) => {
+    const toggle = element.getAttribute('data-toggle');
+    const dismiss = element.getAttribute('data-dismiss');
+    element.addEventListener('click', (event) => {
+      event.preventDefault();
+      (toggle === 'modal' || dismiss !== 'modal') ? show(true) : show(false)
+    }, false);
+  });
+  overlay.addEventListener('click', (event)=> {
+    event.preventDefault();
+    show(false);
+  }, false)
 })(window,document);
