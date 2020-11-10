@@ -1,4 +1,5 @@
 (function() {
+  const ACTIVE_CLASS_NAME = 'active';
   /**
    * スライドショーclass
    * @param {string} wrapper
@@ -34,13 +35,13 @@
         if (prevBtn) {
           prevBtn.addEventListener('click', {
             items,
-            handleEvent: this.onClikcPrevBtn
+            handleEvent: this.onClickPrevBtn
           }, false);
         }
         if (nextBtn) {
           nextBtn.addEventListener('click', {
             items,
-            handleEvent: this.onClikcNextBtn
+            handleEvent: this.onClickNextBtn
           }, false);
         }
       });
@@ -49,7 +50,7 @@
      * 前へ戻るボタンクリック
      * @param {Event} event
      */
-    onClikcPrevBtn: function(event) {
+    onClickPrevBtn: function(event) {
       event.preventDefault();
       this.items.decrement();
       this.items.showItem();
@@ -58,7 +59,7 @@
      * 次へ戻るボタンクリック
      * @param {Event} event
      */
-    onClikcNextBtn: function(event) {
+    onClickNextBtn: function(event) {
       event.preventDefault();
       this.items.increment();
       this.items.showItem();
@@ -82,7 +83,7 @@
       this.list.forEach((element, index) => {
         if (index === 0) {
           // 一番最初のスライドをアクティブにする
-          element.classList.add('active');
+          element.classList.add(ACTIVE_CLASS_NAME);
         }
       });
     },
@@ -118,9 +119,9 @@
     showItem: function() {
       this.list.forEach((element, index) => {
         if (this.currentIndex === index) {
-          element.classList.add('active');
+          element.classList.add(ACTIVE_CLASS_NAME);
         } else {
-          element.classList.remove('active');
+          element.classList.remove(ACTIVE_CLASS_NAME);
         }
       });
     }
