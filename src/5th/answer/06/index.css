@@ -1,75 +1,34 @@
-#inputFile {
-  position: relative;
-  padding: 180px 0 100px;
-  text-align: center;
+body {
+  padding: 10px;
+  box-sizing: border-box;
 }
-
-#dropArea {
-  position: absolute;
-  top: 0;
-  left: 0;
+.dragDropArea {
   width: 100%;
-  height: 100%;
-  padding: 100px 0 0;
-  border: 2px dashed #494949;
-  background: rgba(22, 165, 191, 0);
-  transition: all 0.25s cubic-bezier(0.21, 0.51, 0.51, 1);
+  height: 500px;
+  background: #eeeeee;
+  border: #acacac dashed 5px;
+  position: relative;
 }
-
-#dropArea.dragover {
-  border: 2px solid #16a5bf;
-  background: rgba(22, 165, 191, 0.6);
-}
-
-#uploadFile {
+.dragDropArea__inner {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  display: block;
-  width: 300px;
-  height: 80px;
-  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-#inputFileWrap {
-  position: relative;
-  display: inline-block;
-}
-
-#btnInputFile,
-#btnChangeFile {
-  display: table;
-  width: 300px;
-}
-
-#btnChangeFile {
-  display: none;
-}
-
-
-#btnInputFile span,
-#btnChangeFile span {
-  position: relative;
-  z-index: 2;
-  display: table-cell;
-  width: 300px;
-  height: 80px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  background: #333;
-  text-decoration: none;
-  color: #fff;
-  font-size: 26px;
-  line-height: 1;
+.dragDropArea__text {
+  text-align: center;
+  font-size: 25px;
   font-weight: bold;
-  vertical-align: middle;
+  color: #acacac;
 }
-
-#upFileWrap.selected #btnInputFile {
-  display: none;
+.dragDropArea__button {
+  border: #acacac 2px solid;
+  padding: 5px;
+  box-sizing: border-box;
 }
-
-#upFileWrap.selected #btnChangeFile {
-  display: table;
+.dragDropArea__button input {
+  color: #ababab;
+}
+.dragDropArea__img img {
+  max-width: 800px;
 }
