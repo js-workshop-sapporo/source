@@ -10,10 +10,10 @@
    * モーダルの表示有無
    * @param isOpen Boolean
    */
-  const show = (isOpen)=> {
-    isOpen ? modal.classList.add(SHOW) : modal.classList.remove(SHOW)
-    isOpen ? overlay.classList.add(SHOW) : overlay.classList.remove(SHOW)
-  }
+  const show = (isOpen) => {
+    isOpen ? modal.classList.add(SHOW) : modal.classList.remove(SHOW);
+    isOpen ? overlay.classList.add(SHOW) : overlay.classList.remove(SHOW);
+  };
 
   buttons.forEach((element) => {
     const toggle = element.getAttribute('data-toggle');
@@ -29,8 +29,8 @@
   /**
    * overlay event
    */
-  overlay.addEventListener('click', (event)=> {
+  overlay.addEventListener('click', (event) => {
     event.preventDefault();
     show(false);
-  }, false)
+  }, false);
 })(window,document);
