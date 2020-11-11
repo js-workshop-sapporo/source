@@ -1,0 +1,41 @@
+.container {
+  height: 2000px;
+  position: relative;
+}
+
+.scroll-item {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+}
+
+.scroll-item.scroll-item__first {
+  background-color: red;
+  left: -500px;
+  top: 10px
+}
+.scroll-item.scroll-item__first.is-show {
+  left: 10px;
+}
+
+.scroll-item.scroll-item__second {
+  background-color: blue;
+  right: -500px;
+  top: 10px
+}
+.scroll-item.scroll-item__second.is-show {
+  right: 10px;
+}
+
+.scroll-item.scroll-item__third {
+  background-color: green;
+  right: -500px;
+  bottom: 10px
+}
+.scroll-item.scroll-item__third.is-show {
+  right: 10px;
+}
