@@ -1,0 +1,41 @@
+body {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.dragDropArea {
+  width: 100%;
+  min-height: 800px;
+  background: #eeeeee;
+  border: #acacac dashed 5px;
+  position: relative;
+  transition: 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.dragDropArea.dragover {
+  background: #ffa8a8;
+  transition: 0.5s;
+}
+.dragDropArea__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dragDropArea__text {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #acacac;
+}
+.dragDropArea__button {
+  border: #acacac 2px solid;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.dragDropArea__button input {
+  color: #ababab;
+}
+.dragDropArea__img img {
+  max-width: 800px;
+}
