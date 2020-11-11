@@ -1,0 +1,31 @@
+.modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0,0,0,0.7);
+  transition: 0.8s;
+}
+.modal-backdrop.show {
+  opacity: 1;
+  transition: 0.8s;
+  visibility: visible;
+}
+.modal {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  width: 500px;
+  height: 392px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transition: 0.8s;
+}
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.8s;
+}
+.modal-dialog {
+  margin: 0;
+}
