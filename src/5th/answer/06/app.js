@@ -49,10 +49,10 @@
   }, false);
   fileInput.addEventListener('change', (event) => {
     event.preventDefault();
-    const files = event.target.files[0]
+    const files = event.target.files[0];
     // 確認用のデバッグコード
-    console.table(files)
-    onChangePreview('onChange', files)
-  }, false)
+    console.table(files);
+    onChangePreview('onChange', files);
+  }, false);
 
 })(window,document);
