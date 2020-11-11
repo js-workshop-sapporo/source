@@ -4,10 +4,17 @@ body {
 }
 .dragDropArea {
   width: 100%;
-  height: 500px;
+  min-height: 800px;
   background: #eeeeee;
   border: #acacac dashed 5px;
   position: relative;
+  transition: 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.dragDropArea.dragover {
+  background: #ffa8a8;
+  transition: 0.5s;
 }
 .dragDropArea__inner {
   position: absolute;

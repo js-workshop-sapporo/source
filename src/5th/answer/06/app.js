@@ -4,21 +4,21 @@
 
   /**
    * onChangePreview
+   * ドラッグ / input選択した画像の出力
    */
   const onChangePreview = (event, f = null) => {
     let file = f;
-    if(file === null){
-      file = event.target.files[0];
-    }
     let reader = new FileReader();
     const preview = document.getElementById('previewArea');
     const previewImage = document.getElementById('previewImage');
-
+    if(file === null){
+      file = event.target.files[0];
+    }
     if(previewImage != null) {
       preview.removeChild(previewImage);
     }
 
-    reader.onload = function(event) {
+    reader.onload = () => {
       const img = document.createElement('img');
       img.setAttribute('src', reader.result);
       img.setAttribute('id', 'previewImage');
@@ -28,22 +28,31 @@
     reader.readAsDataURL(file);
   };
 
-  fileArea.addEventListener('dragover', function(evt){
-    evt.preventDefault();
+  fileArea.addEventListener('dragover', (event) => {
+    event.preventDefault();
     fileArea.classList.add('dragover');
-  });
-  fileArea.addEventListener('dragleave', function(evt){
-    evt.preventDefault();
+  }, false);
+  fileArea.addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    console.log(event);
     fileArea.classList.remove('dragover');
-  });
-  fileArea.addEventListener('drop', function(evt){
-    evt.preventDefault();
+  }, false);
+  fileArea.addEventListener('drop', (event) => {
+    event.preventDefault();
     fileArea.classList.remove('dragenter');
-    const files = evt.dataTransfer.files;
-    console.log("DRAG & DROP");
+    fileArea.classList.remove('dragover');
+    const files = event.dataTransfer.files;
+    // 確認用のデバッグコード
     console.table(files);
     fileInput.files = files;
-    onChangePreview('onChange',files[0]);
-  });
+    onChangePreview('onChange', files[0]);
+  }, false);
+  fileInput.addEventListener('change', (event) => {
+    event.preventDefault();
+    const files = event.target.files[0]
+    // 確認用のデバッグコード
+    console.table(files)
+    onChangePreview('onChange', files)
+  }, false)
 
 })(window,document);
