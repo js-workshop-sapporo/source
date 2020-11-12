@@ -1,4 +1,5 @@
 (function() {
+  /** アクティブ用class名 */
   const ACTIVE_CLASS_NAME = 'active';
   /**
    * スライドショーclass
