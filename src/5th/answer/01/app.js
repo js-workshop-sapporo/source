@@ -46,7 +46,7 @@
     },
     /**
      * 対象をアクテイブ状態にする
-     * @param {HTMLElement}} target
+     * @param {HTMLElement} target
      */
     toggleActiveButton: function(target) {
       this.tabBtnGroup.forEach(tabBtn => {
