@@ -58,7 +58,7 @@
     },
     /**
      * 文字列から先頭のハッシュ（#）を削除した文字列を返す
-     * @param {string} hash
+     * @param {string} string
      */
     replaceHeadHash: function(string) {
       return string.replace(/^#/, '');
